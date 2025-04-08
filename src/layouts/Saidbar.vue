@@ -1,11 +1,16 @@
 <template>
-  <div class="main_saidbar bg-dark text-white p-5 " 
-      :class="{'active' : !isCollapsed}"
+  <div
+    class="main_saidbar bg-dark text-white p-5"
+    :class="{ active: !isCollapsed }"
   >
     <!-- main saidbar_item -->
     <div v-if="isCollapsed" class="main_saidbar_item">
       <div class="logo flex items-center">
-        <img src="../assets/images/logo/logo.jpg" class="w-12 rounded-full" alt="" />
+        <img
+          src="../assets/images/logo/logo.jpg"
+          class="w-12 rounded-full"
+          alt=""
+        />
         <span class="ml-2 text-2xl uppercase font-bold"> Ozodbek </span>
       </div>
       <!-- ---  menu -->
@@ -23,8 +28,12 @@
       </ul>
     </div>
     <!-- ---  -->
-    <div v-if="!isCollapsed"  class="min_saidbar flex items-center flex-col" >
-      <img src="../assets/images/logo/logo.jpg" class="w-10 rounded-full mb-5" alt="" />
+    <div v-if="!isCollapsed" class="min_saidbar flex items-center flex-col">
+      <img
+        src="../assets/images/logo/logo.jpg"
+        class="w-10 rounded-full mb-5"
+        alt=""
+      />
       <ul class="flex flex-col items-center">
         <li
           class="flex items-center mt-4 mb-2 p-2 rounded-md"
@@ -33,8 +42,8 @@
           :class="{ 'bg-dark-green': item.child.includes($route.name) }"
           @click="SendPush(item, idx)"
         >
-          <i :class="item.icons" class="text-xl " ></i> 
-          <span  class=" min-text text-xl ml-2 "> {{ item.name }}</span>
+          <i :class="item.icons" class="text-xl"></i>
+          <span class="min-text text-xl ml-2"> {{ item.name }}</span>
         </li>
       </ul>
     </div>
@@ -43,7 +52,7 @@
 
 <script>
 import homeItem from "./mainConfig.js";
-import { mapState } from "vuex"; 
+import { mapState } from "vuex";
 export default {
   data() {
     return {
@@ -51,8 +60,8 @@ export default {
       // mainActive:false,
     };
   },
-  computed:{
-    ...mapState('ui', ['isCollapsed'])
+  computed: {
+    ...mapState("ui", ["isCollapsed"]),
   },
   methods: {
     SendPush(item, idx) {
@@ -70,16 +79,13 @@ export default {
 .main_saidbar {
   transition: all 0.3s;
   width: 250px;
-  &.active{
+  &.active {
     width: 100px;
   }
 
-  .min_saidbar{
-
-    .min-text{
+  .min_saidbar {
+    .min-text {
       display: none;
-
-
     }
   }
 }
